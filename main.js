@@ -1,27 +1,24 @@
-// prompt visitor for a comma-separated list of flavors.
-let userObject = {};
-let userInput = prompt(
-    "Please enter your flavors in a comma-separated list:"
-);
-userObject.data = userInput;
+// Prompt user for input
+const input = prompt("Please enter a comma separated list of flavors");
 
-// split flavors into array.
-let array = userInput.split(", ");
+// Split array 
+const flavors = input.split(",");
 
-// create a function that iterates through the user input, and tracks how many of each flavor.
-function getFlavors(){
+// Function to separate the array into flavors and quantities
+function separateArrayIntoFlavorsAndQuantities(flavors) {
+    const result = {};
+    flavors.forEach(flavor => {
+        if (result[flavor]) {
+            result[flavor] += 1;
+        } else {
+            result[flavor] = 1;
+        }
+    });
+    return result;
+}
 
-};
+// Declare constant for output
+const flavorsAndQuantities = separateArrayIntoFlavorsAndQuantities(flavors);
 
-// create table.
-
-
-
-// display the flavors and amounts of each
-console.log();
-
-
-
-
-
-// vanilla,vanilla,vanilla,strawberry,coffee,coffee
+// Log the result
+console.log(flavorsAndQuantities);
